@@ -1,0 +1,31 @@
+﻿<Window x:Class="WpfApp1.ProductListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+         Title="Продукция" Height="400" Width="600"
+        WindowStartupLocation="CenterOwner"
+        Background="#FFFFFF" FontFamily="Georgia">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock x:Name="HeaderText" Grid.Row="0" FontSize="18" FontWeight="Bold" Foreground="#8A5A44" Margin="0,0,0,15" TextWrapping="Wrap"/>
+        
+        <DataGrid x:Name="ProductsDataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" HeadersVisibility="Column" GridLinesVisibility="Horizontal" Background="#F4E6D4" RowBackground="White" AlternatingRowBackground="#FFFFFF">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Артикул" Binding="{Binding Article}" Width="100"/>
+                <DataGridTextColumn Header="Наименование продукции" Binding="{Binding ProductName}" Width="*"/>
+                <DataGridTextColumn Header="Кол-во на ед." Binding="{Binding QuantityPerUnit}" Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Grid.Row="2" Content="Назад" Width="100" Height="35" HorizontalAlignment="Right" Margin="0,15,0,0" Background="#F4E6D4" Foreground="#8A5A44" FontWeight="Bold" BorderThickness="0" Click="BackButton_Click"/>
+    </Grid>
+</Window>
